@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- edited with XMLSpy v2006 U (http://www.altova.com) by ismakaev (EMBRACE) --><definitions targetNamespace="http://iac.spb.ru/LDAPname" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:nns="http://iac.spb.ru/LDAPname" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <types>
+      <xsd:schema targetNamespace="http://iac.spb.ru/LDAPname" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:include schemaLocation="PersonalScheme.xsd"/>           
+            <xsd:element name="createRequest" type="nns:createRequestType"/>      
+            <xsd:element name="createResponse" type="nns:createResponseType"/>
+            <xsd:element name="searchRequest" type="nns:searchRequestType"/>      
+            <xsd:element name="searchResponse" type="nns:searchResponseType"/>
+            <xsd:element name="editRequest" type="nns:editRequestType"/>      
+            <xsd:element name="editResponse" type="nns:editResponseType"/>
+            <xsd:element name="createRequestOrg" type="nns:createRequestType"/>      
+            <xsd:element name="createResponseOrg" type="nns:createResponseType"/>
+            <xsd:element name="searchRequestOrg" type="nns:searchRequestType"/>      
+            <xsd:element name="searchResponseOrg" type="nns:searchResponseType"/>
+            <xsd:element name="editRequestOrg" type="nns:editRequestType"/>      
+            <xsd:element name="editResponseOrg" type="nns:editResponseType"/>
+            <xsd:element name="searchLoginRequest" type="nns:searchLoginRequestType"/>      
+            <xsd:element name="searchLoginResponse" type="nns:searchLoginResponseType"/>
+       </xsd:schema>
+    </types>
+    <message name="createRequestMsgOrg">
+        <part element="nns:createRequestOrg" name="createRequestPart"/>
+    </message>
+    <message name="createResponseMsgOrg">
+        <part element="nns:createResponseOrg" name="createResponsePart"/>
+    </message>
+    <message name="searchRequestMsgOrg">
+        <part element="nns:searchRequestOrg" name="searchRequestPart"/>
+    </message>
+    <message name="searchResponseMsgOrg">
+        <part element="nns:searchResponseOrg" name="searchResponsePart"/>
+    </message>
+    <message name="editRequestMsgOrg">
+        <part element="nns:editRequestOrg" name="editRequestPart"/>
+    </message>
+    <message name="editResponseMsgOrg">
+        <part element="nns:editResponseOrg" name="editResponsePart"/>
+    </message>
+    
+    <message name="createRequestMsg">
+        <part element="nns:createRequest" name="createRequestPart"/>
+    </message>
+    <message name="createResponseMsg">
+        <part element="nns:createResponse" name="createResponsePart"/>
+    </message>
+    <message name="searchRequestMsg">
+        <part element="nns:searchRequest" name="searchRequestPart"/>
+    </message>
+    <message name="searchResponseMsg">
+        <part element="nns:searchResponse" name="searchResponsePart"/>
+    </message>
+    <message name="editRequestMsg">
+        <part element="nns:editRequest" name="editRequestPart"/>
+    </message>
+    <message name="editResponseMsg">
+        <part element="nns:editResponse" name="editResponsePart"/>
+    </message>
+    <message name="searchLoginRequestMsg">
+        <part element="nns:searchLoginRequest" name="searchLoginRequestPart"/>
+    </message>
+    <message name="searchLoginResponseMsg">
+        <part element="nns:searchLoginResponse" name="searchLoginResponsePart"/>
+    </message>
+    
+    <portType name="NewLdapPort">
+        <operation name="createOrg">
+            <input message="nns:createRequestMsgOrg" name="createRequestOpOrg"/>
+            <output message="nns:createResponseMsgOrg" name="createResponseOpOrg"/>
+        </operation>
+        <operation name="searchOrg">
+            <input message="nns:searchRequestMsgOrg" name="searchRequestMsgOpOrg"/>
+            <output message="nns:searchResponseMsgOrg" name="searchResponseMsgOpOrg"/>
+        </operation>
+        <operation name="editOrg">
+            <input message="nns:editRequestMsgOrg" name="editRequestMsgOpOrg"/>
+            <output message="nns:editResponseMsgOrg" name="editResponseMsgOpOrg"/>
+        </operation>
+        <operation name="create">
+            <input message="nns:createRequestMsg" name="createRequestOp"/>
+            <output message="nns:createResponseMsg" name="createResponseOp"/>
+        </operation>
+        <operation name="search">
+            <input message="nns:searchRequestMsg" name="searchRequestMsgOp"/>
+            <output message="nns:searchResponseMsg" name="searchResponseMsgOp"/>
+        </operation>
+        <operation name="edit">
+            <input message="nns:editRequestMsg" name="editRequestMsgOp"/>
+            <output message="nns:editResponseMsg" name="editResponseMsgOp"/>
+        </operation>
+        <operation name="searchLogin">
+            <input message="nns:searchLoginRequestMsg" name="searchLoginRequestMsgOp"/>
+            <output message="nns:searchLoginResponseMsg" name="searchLoginResponseMsgOp"/>
+        </operation>        
+    </portType>
+    
+    <binding name="NewLdapBinding" type="nns:NewLdapPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="createOrg">
+            <soap:operation soapAction="createOrg"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="searchOrg">
+            <soap:operation soapAction="searchOrg"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="editOrg">
+            <soap:operation soapAction="editOrg"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="create">
+            <soap:operation soapAction="create"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="search">
+            <soap:operation soapAction="search"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="edit">
+            <soap:operation soapAction="edit"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="searchLogin">
+            <soap:operation soapAction="searchLogin"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>        
+    </binding>
+    <service name="NewLdapService">
+        <port binding="nns:NewLdapBinding" name="NewLdapPort">
+            <soap:address location="No Target Adress"/>
+        </port>
+    </service>
+</definitions>

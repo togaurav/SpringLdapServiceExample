@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://iac.spb.ru/LDAPname"
+           targetNamespace="http://iac.spb.ru/LDAPname" elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+    <xs:complexType name="createResponseType">
+        <xs:sequence>
+            <xs:element name="result" type="xs:boolean" minOccurs="1"/>
+            <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="errorString" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createRequestType">
+        <xs:sequence>
+            <xs:element name="utik" type="xs:string" minOccurs="1"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="phone" type="xs:string" minOccurs="0"/>
+            <xs:element name="password" type="xs:string" minOccurs="1"/>
+            <xs:element name="login" type="xs:string" minOccurs="0"/>
+            <xs:element name="name" type="tns:ldapFio" minOccurs="1"/>
+            <xs:element name="nameRod" type="tns:ldapFioLight" minOccurs="0"/>
+            <xs:element name="accept" type="xs:string" minOccurs="0"/>
+            <xs:element name="newAccountTabu" type="xs:boolean" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="searchResponseType">
+        <xs:sequence>
+            <xs:element name="person" type="tns:personalInfo" minOccurs="0"/>
+            <xs:element name="result" type="xs:boolean" minOccurs="1"/>
+            <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="errorString" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="searchRequestType">
+        <xs:sequence>
+            <xs:element name="utik" type="xs:string" minOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="editResponseType">
+        <xs:sequence>
+            <xs:element name="wasEdited" type="xs:boolean" default="false" minOccurs="1"/>
+            <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="errorString" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="editRequestType">
+        <xs:sequence>
+            <xs:element name="utik" type="xs:string" minOccurs="1"/>
+            <xs:element name="login" type="xs:string" minOccurs="0"/>
+            <xs:element name="accept" type="xs:string" minOccurs="0"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="phone" type="xs:string" minOccurs="0"/>
+            <xs:element name="password" type="xs:string" minOccurs="0"/>
+            <xs:element name="name" type="tns:ldapFioLight" minOccurs="0"/>
+            <xs:element name="nameRod" type="tns:ldapFioLight" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="searchLoginResponseType">
+        <xs:sequence>
+            <xs:element name="loginAvailable" type="xs:boolean" default="false" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="searchLoginRequestType">
+        <xs:sequence>
+            <xs:element name="login" type="xs:string" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ldapFio">
+        <xs:sequence>
+            <xs:element name="firstName" type="xs:string" minOccurs="1"/>
+            <xs:element name="middleName" type="xs:string" minOccurs="0"/>
+            <xs:element name="lastName" type="xs:string" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ldapFioLight">
+        <xs:sequence>
+            <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+            <xs:element name="middleName" type="xs:string" minOccurs="0"/>
+            <xs:element name="lastName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="personalInfo">
+        <xs:sequence>
+            <xs:element name="utik" type="xs:string" minOccurs="1"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="phone" type="xs:string" minOccurs="0"/>
+            <xs:element name="password" type="xs:string" minOccurs="0"/>
+            <xs:element name="login" type="xs:string" minOccurs="0"/>
+            <xs:element name="name" type="tns:ldapFio" minOccurs="1"/>
+            <xs:element name="nameRod" type="tns:ldapFioLight" minOccurs="0"/>
+            <xs:element name="accept" type="xs:string" minOccurs="0"/>
+            <xs:element name="newAccountTabu" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
